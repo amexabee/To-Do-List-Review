@@ -6,15 +6,15 @@ export default class Lists {
     this.id = new Date().getTime();
   }
 
-  newTask(task) {
+  newTask = (task) => {
     this.task = task;
-  }
+  };
 
-  done(isDone) {
+  done = (isDone) => {
     this.isDone = isDone;
-  }
+  };
 
-  newIndex(index) {
+  newIndex = (index) => {
     this.index = index;
-  }
+  };
 }

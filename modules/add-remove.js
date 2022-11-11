@@ -11,43 +11,43 @@ export default class AddRemove {
     }
   }
 
-  add(item) {
+  add = (item) => {
     item.newIndex(this.items.length);
     this.items.push(item);
     this.store();
-  }
+  };
 
-  edit(item) {
+  edit = (item) => {
     const index = this.items.findIndex((e) => e.id === item.id);
     this.items[index] = item;
     this.store();
-  }
+  };
 
-  clear() {
+  clear = () => {
     this.items = this.items.filter((e) => !e.isDone);
     this.setIndex();
     this.store();
-  }
+  };
 
-  remove(item) {
+  remove = (item) => {
     this.items = this.items.filter((e) => e.id !== item.id);
     this.setIndex();
     this.store();
-  }
+  };
 
-  store() {
+  store = () => {
     localStorage.setItem('ToDoList', JSON.stringify(this.items));
-  }
+  };
 
-  order(a, b) {
+  order = (a, b) => {
     return a.id - b.id;
-  }
+  };
 
-  setIndex() {
+  setIndex = () => {
     const sorted = this.items.sort(this.order);
     sorted.forEach((task, index) => {
       task.index = index;
     });
     this.items = sorted;
-  }
+  };
 }
